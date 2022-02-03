@@ -1,0 +1,25 @@
+{
+  "name": "ango-chat",
+  "version": "1.0.0",
+  "description": "AngoChat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dorivatech/ango-chat.git"
+  },
+  "keywords": [
+    "chat"
+  ],
+  "authors": [
+    "dorivatech <dorivatech@gmail.com>",
+    "dorivaldovalentim <dorivaldovalentim@gmail.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dorivatech/ango-chat/issues"
+  },
+  "homepage": "https://github.com/dorivatech/ango-chat#readme"
+}
