@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/dorivatech/ango-chat#readme",
   "dependencies": {
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "pug": "^3.0.2"
   }
 }
