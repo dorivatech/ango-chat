@@ -1,0 +1,13 @@
+html
+    head
+        block head
+            title #{title} » Ango Chat
+
+        link(rel='stylesheet', href='/assets/css/style.css')
+    
+    body
+        include ./../shared/head.pug
+
+        block content
+        
+        include ./../shared/footer.pug
