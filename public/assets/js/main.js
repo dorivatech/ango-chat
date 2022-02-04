@@ -1,1 +1,3 @@
-alert('Hello World!');
+import '/socket.io/socket.io.js';
+
+var socket = io();

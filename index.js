@@ -4,6 +4,8 @@ const http = require('http');
 const server = http.createServer(app);
 const path = require('path');
 const port = 3000;
+const { Server } = require('socket.io');
+const io = new Server(server);
 
 /** Defini o pug como o template engine */
 app.set('view engine', 'pug');
@@ -15,5 +17,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => res.render('home'));
+
+io.on('connection', (socket) => {
+    console.log('A user connected', socket);
+});
 
 server.listen(port, () => console.log(`App listening on port ${port} ✌❤`));
