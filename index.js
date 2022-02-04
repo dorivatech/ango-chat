@@ -1,7 +1,11 @@
 const express = require('express');
 const app = express();
+const http = require('http');
+const server = http.createServer(app);
 const path = require('path');
 const port = 3000;
+const { Server } = require('socket.io');
+const io = new Server(server);
 
 /** Defini o pug como o template engine */
 app.set('view engine', 'pug');
@@ -14,4 +18,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => res.render('home'));
 
-app.listen(port, () => console.log(`App listening on port ${port} ✌❤`));
+io.on('connection', (socket) => {
+    socket.on('chat message', (message) => {
+        io.emit('chat message', message);
+    });
+
+    socket.on('disconnect', () => {
+        io.emit('chat message', 'Um usuário saiu');
+    })
+});
+
+server.listen(port, () => console.log(`App listening on port ${port} ✌❤`));
