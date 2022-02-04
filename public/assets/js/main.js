@@ -3,7 +3,7 @@ import '/socket.io/socket.io.js';
 var socket = io();
 
 var form = document.querySelector('form');
-var textarea = document.querySelector('textarea');
+var textarea = document.querySelector('#message');
 var messages = document.querySelector('#messages');
 
 form.addEventListener('submit', function(e) {

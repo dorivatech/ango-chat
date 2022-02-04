@@ -1,10 +1,18 @@
 extends layouts/default.pug
 
 block content
-    h1(class="text-3xl font-bold underline") Hello World!
+    .d-flex.justify-content-center.align-items-center.flex-column.h-100
+        h1.text-center AngoChat
 
-    div#messages
+        .chat.row.justify-content-center
+            .col-lg-5.col-md-7.col-sm-8.col-10
+                .card.h-100
+                    .card-body
+                        #messages
 
-    form
-        textarea
-        button(type="submit") Enviar
+                    .card-footer
+                        form
+                            .input-group
+                                input.form-control#message(type="text" placeholder='Digite sua mensagem...')
+                                .input-group-append
+                                    button.input-group-text(type='submit') Enviar
