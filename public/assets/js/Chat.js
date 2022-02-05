@@ -69,5 +69,10 @@ export const Chat = {
         item.appendChild(span);
         this.getTypingContainer().innerHTML = item.outerHTML;
         this.scrollMessagesContainerToTop();
+    },
+
+    stopTyping: function (data = {}) {
+        this.getTypingContainer().innerHTML = "";
+        this.scrollMessagesContainerToTop();
     }
 }

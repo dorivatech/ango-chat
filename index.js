@@ -27,6 +27,10 @@ io.on('connection', (socket) => {
         io.emit('someone typing', { userId: socket.id });
     });
 
+    socket.on('stop typing', () => {
+        io.emit('stop typing', { userId: socket.id });
+    });
+
     socket.on('chat message', (message) => {
         io.emit('chat message', message);
     });
