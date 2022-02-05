@@ -38,14 +38,14 @@ export const Chat = {
         this.scrollMessagesContainerToTop();
     },
     
-    connectedDisconnectedUserListener: function(type, message = null) {
+    connectedDisconnectedUserListener: function(type, data = {}) {
         var item = document.createElement('li');
         var span = document.createElement('i');
         
         item.classList.add('text-muted');
         item.classList.add('justify-content-center');
         span.classList.add(type == 'connected' ? 'text-success' : 'text-danger');
-        span.textContent = message;
+        span.textContent = data?.message;
         
         item.appendChild(span);
         this.getMessagesContainer().appendChild(item);

@@ -1,6 +1,8 @@
 import '/socket.io/socket.io.js';
 import { Chat } from './Chat.js';
 
+
+
 var socket = io();
 
 Chat.getForm().addEventListener('submit', function(e) {
@@ -13,5 +15,5 @@ Chat.getForm().addEventListener('submit', function(e) {
 });
 
 socket.on('chat message', message => Chat.newMessage(Math.round(Math.random()) == 0, message));
-socket.on('connected user', message => Chat.connectedDisconnectedUserListener('connected', message));
-socket.on('disconnected user', message => Chat.connectedDisconnectedUserListener('disconnected', message));
+socket.on('connected user', data => Chat.connectedDisconnectedUserListener('connected', data));
+socket.on('disconnected user', data => Chat.connectedDisconnectedUserListener('disconnected', data));
