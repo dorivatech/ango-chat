@@ -13,7 +13,10 @@ Chat.getForm().addEventListener('submit', function(e) {
 });
 
 Chat.getTextarea().addEventListener('input', function() {
-    socket.emit('someone typing');
+    if (this.value == '')
+        socket.emit('stop typing');
+    else
+        socket.emit('someone typing');
 });
 
 Chat.getTextarea().addEventListener('focusout', function () {
