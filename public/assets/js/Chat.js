@@ -39,13 +39,14 @@ export const Chat = {
     },
     
     connectedDisconnectedUserListener: function(type, data = {}) {
+        console.log(type, data);
         var item = document.createElement('li');
         var span = document.createElement('i');
         
         item.classList.add('text-muted');
         item.classList.add('justify-content-center');
         span.classList.add(type == 'connected' ? 'text-success' : 'text-danger');
-        span.textContent = data?.message;
+        span.textContent = type == 'connected' ? `${data.userId} conectou-se` : `${data.userId} desconectou-se`;
         
         item.appendChild(span);
         this.getMessagesContainer().appendChild(item);

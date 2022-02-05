@@ -1,8 +1,6 @@
 import '/socket.io/socket.io.js';
 import { Chat } from './Chat.js';
 
-
-
 var socket = io();
 
 Chat.getForm().addEventListener('submit', function(e) {
