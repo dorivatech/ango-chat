@@ -16,7 +16,14 @@ form.addEventListener('submit', function(e) {
 
 socket.on('chat message', function (msg) {
     var item = document.createElement('li');
-    item.textContent = msg;
+    var message = document.createElement('span');
+
+    message.classList.add('message');
+    Math.round(Math.random()) == 0 ? item.classList.add('me') : '';
+
+    message.textContent = msg;
+
+    item.appendChild(message);
     messages.appendChild(item);
-    window.scrollTo(0, document.body.scrollHeight);
+    document.querySelector('.card-body').scrollTo(0, document.querySelector('.card-body').scrollHeight);
 });
