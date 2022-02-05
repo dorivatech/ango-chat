@@ -8,7 +8,7 @@
     height: 500px;
 }
 
-.card-body {
+#messages-container {
     overflow-y: auto;
 }
 

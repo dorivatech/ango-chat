@@ -19,12 +19,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => res.render('home'));
 
 io.on('connection', (socket) => {
+    io.emit('connected user', 'Um novo usuário se conectou.');
+
     socket.on('chat message', (message) => {
         io.emit('chat message', message);
     });
 
     socket.on('disconnect', () => {
-        io.emit('chat message', 'Um usuário saiu');
+        io.emit('disconnected user', 'Um usuário se desconectou.');
     })
 });
 
