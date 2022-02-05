@@ -3,6 +3,7 @@ export const Chat = {
     textareaId: '#message',
     messagesContainerId: '#messages',
     scrollableMessagesContainerId: '#messages-container',
+    typingContainerId: '#typing-container',
 
     getForm: function() {
         return document.querySelector(this.formId);
@@ -18,6 +19,10 @@ export const Chat = {
 
     getScrollableMessagesContainer: function () {
         return document.querySelector(this.scrollableMessagesContainerId);
+    },
+
+    getTypingContainer: function () {
+        return document.querySelector(this.typingContainerId);
     },
 
     scrollMessagesContainerToTop: function() {
@@ -39,7 +44,6 @@ export const Chat = {
     },
     
     connectedDisconnectedUserListener: function(type, data = {}) {
-        console.log(type, data);
         var item = document.createElement('li');
         var span = document.createElement('i');
         
@@ -50,6 +54,20 @@ export const Chat = {
         
         item.appendChild(span);
         this.getMessagesContainer().appendChild(item);
+        this.scrollMessagesContainerToTop();
+    },
+
+    someoneTyping: function(data = {}) {
+        var item = document.createElement('li');
+        var span = document.createElement('i');
+        
+        item.classList.add('text-muted');
+        item.classList.add('justify-content-center');
+        span.classList.add('text-info');
+        span.textContent = `${data.userId} está digitando...`;
+        
+        item.appendChild(span);
+        this.getTypingContainer().innerHTML = item.outerHTML;
         this.scrollMessagesContainerToTop();
     }
 }

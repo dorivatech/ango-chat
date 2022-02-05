@@ -19,7 +19,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => res.render('home'));
 
 io.on('connection', (socket) => {
-    io.emit('connected user', { userId: socket.id });
+    io.emit('connected user', {
+        userId: socket.id
+    });
+
+    socket.on('someone typing', () => {
+        io.emit('someone typing', { userId: socket.id });
+    });
 
     socket.on('chat message', (message) => {
         io.emit('chat message', message);
