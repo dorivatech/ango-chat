@@ -1,3 +1,17 @@
 extends layouts/default.pug
 
 block content
+    .d-flex.justify-content-center.align-items-center.flex-column.h-100
+        h1.text-center AngoChat
+
+        .chat.row.justify-content-center
+            .col-lg-5.col-md-7.col-sm-8.col-10
+                .card.h-100
+                    .card-body
+                        form#form
+                            .row.align-items-center.h-100
+                                .col-md-12.form-group.mb-2
+                                        input.form-control(type="text" placeholder='Digite seu nome, deixe vazio se quiser ser anônimo...' autofocus)
+
+                                .col-md-12.form-group.text-center
+                                    button.btn.btn-primary(type='submit') Iniciar
