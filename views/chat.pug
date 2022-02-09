@@ -1,0 +1,20 @@
+extends layouts/default.pug
+
+block content
+    .d-flex.justify-content-center.align-items-center.flex-column.h-100
+        h1.text-center AngoChat
+
+        .chat.row.justify-content-center
+            .col-lg-5.col-md-7.col-sm-8.col-10
+                .card.h-100
+                    .card-body#messages-container
+                        #messages
+
+                        .typing-container.text-center#typing-container
+
+                    .card-footer
+                        form#form
+                            .input-group
+                                input.form-control#message(type="text" placeholder='Digite sua mensagem...' autofocus)
+                                .input-group-append
+                                    button.input-group-text(type='submit') Enviar
