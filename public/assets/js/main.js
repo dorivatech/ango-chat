@@ -23,10 +23,11 @@ Chat.getTextarea().addEventListener('focusout', function () {
     socket.emit('stop typing');
 });
 
-socket.on('chat message', message => {
-    Chat.newMessage(Math.round(Math.random()) == 0, message);
+socket.on('chat message', data => {
+    Chat.newMessage(Chat.getUserDataFromLocalStorage().userId == data.userId, data);
     socket.emit('stop typing');
 });
+
 socket.on('connected user', data => Chat.connectedDisconnectedUserListener('connected', data));
 socket.on('disconnected user', data => Chat.connectedDisconnectedUserListener('disconnected', data));
 socket.on('someone typing', data => Chat.someoneTyping(data));

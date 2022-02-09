@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => res.render('home'));
 
 io.on('connection', (socket) => {
-    io.emit('connected user', {
+    socket.broadcast.emit('connected user', {
         userId: socket.id
     });
 
@@ -32,12 +32,12 @@ io.on('connection', (socket) => {
     });
 
     socket.on('chat message', (message) => {
-        io.emit('chat message', message);
+        io.emit('chat message', { userId: socket.id, message: message });
     });
 
     socket.on('disconnect', () => {
         io.emit('disconnected user', { userId: socket.id });
-    })
+    });
 });
 
 server.listen(port, () => console.log(`App listening on port ${port} ✌❤`));

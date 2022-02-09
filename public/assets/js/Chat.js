@@ -29,14 +29,22 @@ export const Chat = {
         this.getScrollableMessagesContainer().scrollTo(0, this.getScrollableMessagesContainer().scrollHeight);
     },
 
-    newMessage: function(myself = null, message) {
+    getUserDataFromLocalStorage: function() {
+        return JSON.parse(localStorage.getItem('user'));
+    },
+
+    setUserDataToLocalStorage: function(data) {
+        localStorage.setItem('user', JSON.stringify(data));
+    },
+
+    newMessage: function(myself = null, data) {
         var item = document.createElement('li');
         var span = document.createElement('span');
 
         span.classList.add('message');
         myself ? item.classList.add('me') : '';
 
-        span.textContent = message;
+        span.textContent = data?.message;
 
         item.appendChild(span);
         this.getMessagesContainer().appendChild(item);
@@ -51,6 +59,10 @@ export const Chat = {
         item.classList.add('justify-content-center');
         span.classList.add(type == 'connected' ? 'text-success' : 'text-danger');
         span.textContent = type == 'connected' ? `${data.userId} conectou-se` : `${data.userId} desconectou-se`;
+
+        if (type == 'connected')
+            if (!this.getUserDataFromLocalStorage()?.userId)
+                this.setUserDataToLocalStorage(data);
         
         item.appendChild(span);
         this.getMessagesContainer().appendChild(item);
