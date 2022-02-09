@@ -3,7 +3,7 @@ const app = express();
 const http = require('http');
 const server = http.createServer(app);
 const path = require('path');
-const port = 3000;
+const port = process.env.PORT || 3000;
 const { Server } = require('socket.io');
 const io = new Server(server);
 
@@ -19,13 +19,25 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => res.render('home'));
 
 io.on('connection', (socket) => {
+    socket.broadcast.emit('connected user', {
+        userId: socket.id
+    });
+
+    socket.on('someone typing', () => {
+        io.emit('someone typing', { userId: socket.id });
+    });
+
+    socket.on('stop typing', () => {
+        io.emit('stop typing', { userId: socket.id });
+    });
+
     socket.on('chat message', (message) => {
-        io.emit('chat message', message);
+        io.emit('chat message', { userId: socket.id, message: message });
     });
 
     socket.on('disconnect', () => {
-        io.emit('chat message', 'Um usuário saiu');
-    })
+        io.emit('disconnected user', { userId: socket.id });
+    });
 });
 
 server.listen(port, () => console.log(`App listening on port ${port} ✌❤`));

@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    list-style-type: none;
 }
 
 .chat {
@@ -8,7 +9,7 @@
     height: 500px;
 }
 
-.card-body {
+#messages-container {
     overflow-y: auto;
 }
 

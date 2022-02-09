@@ -1,29 +1,34 @@
 import '/socket.io/socket.io.js';
+import { Chat } from './Chat.js';
 
 var socket = io();
 
-var form = document.querySelector('form');
-var textarea = document.querySelector('#message');
-var messages = document.querySelector('#messages');
-
-form.addEventListener('submit', function(e) {
+Chat.getForm().addEventListener('submit', function(e) {
     e.preventDefault();
+    let textarea = Chat.getTextarea();
 
     if (textarea.value)
         socket.emit('chat message', textarea.value);
         textarea.value = '';
 });
 
-socket.on('chat message', function (msg) {
-    var item = document.createElement('li');
-    var message = document.createElement('span');
-
-    message.classList.add('message');
-    Math.round(Math.random()) == 0 ? item.classList.add('me') : '';
-
-    message.textContent = msg;
-
-    item.appendChild(message);
-    messages.appendChild(item);
-    document.querySelector('.card-body').scrollTo(0, document.querySelector('.card-body').scrollHeight);
+Chat.getTextarea().addEventListener('input', function() {
+    if (this.value == '')
+        socket.emit('stop typing');
+    else
+        socket.emit('someone typing');
 });
+
+Chat.getTextarea().addEventListener('focusout', function () {
+    socket.emit('stop typing');
+});
+
+socket.on('chat message', data => {
+    Chat.newMessage(Chat.getUserDataFromLocalStorage().userId == data.userId, data);
+    socket.emit('stop typing');
+});
+
+socket.on('connected user', data => Chat.connectedDisconnectedUserListener('connected', data));
+socket.on('disconnected user', data => Chat.connectedDisconnectedUserListener('disconnected', data));
+socket.on('someone typing', data => Chat.someoneTyping(data));
+socket.on('stop typing', data => Chat.stopTyping(data));
