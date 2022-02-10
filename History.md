@@ -41,3 +41,5 @@ export const Theme = {
 ```
 
 Voltei a trabalhar com os Cookies e adivinha só? Está tudo funcional 😊😊
+
+Adicionei o .env ao jogo, nesse momento tem apenas a porta do projecto.
