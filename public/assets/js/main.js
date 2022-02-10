@@ -1,5 +1,18 @@
 import '/socket.io/socket.io.js';
 import { Chat } from './Chat.js';
+import { Theme } from './Theme.js';
+
+window.onload = function() {
+    Theme.init();
+}
+
+document.querySelector('#light').addEventListener('click', function() {
+    Theme.setCookieTheme('light');
+})
+
+document.querySelector('#dark').addEventListener('click', function () {
+    Theme.setCookieTheme('dark');
+})
 
 var socket = io();
 
