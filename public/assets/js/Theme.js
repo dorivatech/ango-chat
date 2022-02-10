@@ -7,7 +7,7 @@
  * Esta é a class responsável pelos métodos de mudança entre os temas do app
  */
 
-import { Cookie } from "./Cookie.js";
+import { LocalStorage } from "./LocalStorage.js";
 
 export const Theme = {
     /**
@@ -16,7 +16,7 @@ export const Theme = {
      * @property theme: o tema selecionado
      */
 
-    theme: this?.getCookieTheme() ? this?.getCookieTheme() : 'teste',
+    theme: 'light',
 
     getTheme: function () {
         return this.theme;
@@ -26,20 +26,25 @@ export const Theme = {
         this.theme = theme;
     },
 
-    setCookieTheme: function (theme) {
+    setLocalStorageTheme: function (theme) {
         this.removeTheme();
         this.setTheme(theme);
-        this.init();
+
+        if (!this.getLocalStorageTheme() || this.getLocalStorageTheme() != this.getTheme())
+            LocalStorage.setLocalStorage('ango_chat_theme', this.getTheme());
+            
         this.addTheme();
     },
 
-    getCookieTheme: function () {
-        return Cookie.getCookie('ango_chat_theme');
+    getLocalStorageTheme: function () {
+        return LocalStorage.getLocalStorage('ango_chat_theme');
     },
 
     init: function () {
-        if (!this.getCookieTheme() || this.getCookieTheme() != this.getTheme())
-            Cookie.setCookie('ango_chat_theme', this.getTheme(), 90);
+        this.theme = this.getLocalStorageTheme() || 'light';
+
+        if (!this.getLocalStorageTheme() || this.getLocalStorageTheme() != this.getTheme())
+            LocalStorage.setLocalStorage('ango_chat_theme', this.getTheme());
             
         this.addTheme();
     },
@@ -53,4 +58,4 @@ export const Theme = {
     }
 };
 
-console.log(Theme?.getCookieTheme() || 'teste');
+console.log(Theme?.getLocalStorageTheme() || 'teste');
