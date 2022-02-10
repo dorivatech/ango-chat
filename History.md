@@ -43,3 +43,6 @@ export const Theme = {
 Voltei a trabalhar com os Cookies e adivinha só? Está tudo funcional 😊😊
 
 Adicionei o .env ao jogo, nesse momento tem apenas a porta do projecto.
+
+Pensei em usar o [sass](https://sass-lang.com/) e achei que tivesse que fazer bwede configurações ou algo assim. Mas adivinha, não precisei fazer nada além de colocar o arquivo style.scss na pasta de assets/scss. Depois de mandar o código que estava em assets/css/style.css para assets/scss/style.scss e salvar notei que o compilador já fazia todos os processos.
+Afinal não, tinha outra janela do terminal compilando o sass 🙄🙄 mas vou deixar assim por enquanto.

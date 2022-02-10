@@ -1,37 +1,12 @@
 * {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
 }
 
 .chat {
-    width: 100%;
-    min-height: 200px;
+  width: 100%;
+  min-height: 200px;
 }
 
-#messages-container {
-    overflow-y: auto;
-}
-
-#messages li {
-    display: flex;
-    justify-content: flex-start;
-}
-
-#messages li.me {
-    justify-content: flex-end;
-}
-
-#messages li span {
-    max-width: 85%;
-    list-style-type: none;
-    background: #0003;
-    padding: 10px;
-    border-radius: 10px;
-    margin-block: 5px;
-}
-
-#messages li.me span {
-    background: #00f;
-    color: white;
-}
+/*# sourceMappingURL=style.css.map */
