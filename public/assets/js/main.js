@@ -7,11 +7,11 @@ window.onload = function() {
 }
 
 document.querySelector('#light').addEventListener('click', function() {
-    Theme.setLocalStorageTheme('light');
+    Theme.setCookieTheme('light');
 })
 
 document.querySelector('#dark').addEventListener('click', function () {
-    Theme.setLocalStorageTheme('dark');
+    Theme.setCookieTheme('dark');
 })
 
 /* var socket = io();

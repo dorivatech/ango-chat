@@ -39,3 +39,5 @@ export const Theme = {
     ...
 }
 ```
+
+Voltei a trabalhar com os Cookies e adivinha só? Está tudo funcional 😊😊
