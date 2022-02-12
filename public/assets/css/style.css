@@ -4,6 +4,20 @@
   list-style-type: none;
 }
 
+body.light {
+  background-color: #fff;
+}
+body.light .logo .title {
+  color: #000;
+}
+
+body.dark {
+  background-color: #333;
+}
+body.dark .logo .title {
+  color: #fff;
+}
+
 .chat {
   width: 100%;
   min-height: 200px;
