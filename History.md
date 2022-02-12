@@ -50,4 +50,4 @@ Afinal não, tinha outra janela do terminal compilando o sass 🙄🙄 mas vou d
 
 ## Data: 12 / 02 / 2022
 
-Comecei a trabalhar na estilização dos temas
+Comecei a trabalhar na estilização dos temas. Estou a usar um únimo arquivo scss chamado ```main.scss``` e nele faço o import de ambos os temas (```light.scss``` e ```dark.scss```) e também do style.scss.

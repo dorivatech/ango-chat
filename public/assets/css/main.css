@@ -4,6 +4,12 @@
   list-style-type: none;
 }
 
+.chat {
+  width: 100%;
+  min-height: 200px;
+}
+
+/* Themes */
 body.light {
   background-color: #fff;
 }
@@ -18,9 +24,4 @@ body.dark .logo .title {
   color: #fff;
 }
 
-.chat {
-  width: 100%;
-  min-height: 200px;
-}
-
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=main.css.map */
