@@ -6,14 +6,6 @@ window.onload = function() {
     Theme.init();
 }
 
-document.querySelector('#light').addEventListener('click', function() {
-    Theme.setCookieTheme('light');
-})
-
-document.querySelector('#dark').addEventListener('click', function () {
-    Theme.setCookieTheme('dark');
-})
-
 /* var socket = io();
 
 Chat.getForm().addEventListener('submit', function(e) {
