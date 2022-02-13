@@ -20,12 +20,22 @@ body.dark {
             border: none;
         }
 
+        #messages li span {
+            background-color: #fff;
+        }
+
         .identificationButton {
             color: white;
 
             &.active {
                 background-color: #fff;
                 color: #000 !important;
+            }
+        }
+
+        .btn-send-box {
+            .btn-send {
+                color: white;
             }
         }
     }

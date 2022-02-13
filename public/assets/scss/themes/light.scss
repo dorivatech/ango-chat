@@ -20,9 +20,21 @@ body.light {
             border: none;
         }
 
+        #messages li span {
+            background-color: #0003;
+        }
+
         .identificationButton.active {
             background-color: lighten(gray, 20%);
             color: #000 !important;
+        }
+
+        .btn-send-box {
+            .btn-send {
+                border: none;
+                padding: 10px;
+                background-color: transparent;
+            }
         }
     }
 }

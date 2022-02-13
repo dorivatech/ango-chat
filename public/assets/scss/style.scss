@@ -22,11 +22,54 @@
 
 .chat {
     width: 100%;
-    min-height: 200px;
+    min-height: 300px;
+
+    &.fixed-height {
+        height: 500px;
+    }
 
     .form-control.disabled {
         cursor: not-allowed;
         background-color: lighten(gray, 20%);
         border-color: lighten(gray, 20%);
+    }
+
+    #messages-container {
+        overflow-y: auto;
+        height: 100%
+    }
+
+    #messages li {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    #messages li.me {
+        justify-content: flex-end;
+    }
+
+    #messages li span {
+        max-width: 85%;
+        list-style-type: none;
+        padding: 10px;
+        border-radius: 10px;
+        margin-block: 5px;
+    }
+
+    #messages li.me span {
+        background: #00f !important;
+        color: white;
+    }
+
+    .message-box {
+        width: 90%
+    }
+
+    .btn-send-box {
+        .btn-send {
+            border: none;
+            padding: 10px;
+            background-color: transparent;
+        }
     }
 }

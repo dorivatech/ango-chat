@@ -18,12 +18,45 @@
 
 .chat {
   width: 100%;
-  min-height: 200px;
+  min-height: 300px;
+}
+.chat.fixed-height {
+  height: 500px;
 }
 .chat .form-control.disabled {
   cursor: not-allowed;
   background-color: #b3b3b3;
   border-color: #b3b3b3;
+}
+.chat #messages-container {
+  overflow-y: auto;
+  height: 100%;
+}
+.chat #messages li {
+  display: flex;
+  justify-content: flex-start;
+}
+.chat #messages li.me {
+  justify-content: flex-end;
+}
+.chat #messages li span {
+  max-width: 85%;
+  list-style-type: none;
+  padding: 10px;
+  border-radius: 10px;
+  margin-block: 5px;
+}
+.chat #messages li.me span {
+  background: #00f !important;
+  color: white;
+}
+.chat .message-box {
+  width: 90%;
+}
+.chat .btn-send-box .btn-send {
+  border: none;
+  padding: 10px;
+  background-color: transparent;
 }
 
 /* Themes */
@@ -41,9 +74,17 @@ body.light .chat .card {
   background-color: transparent;
   border: none;
 }
+body.light .chat #messages li span {
+  background-color: #0003;
+}
 body.light .chat .identificationButton.active {
   background-color: #b3b3b3;
   color: #000 !important;
+}
+body.light .chat .btn-send-box .btn-send {
+  border: none;
+  padding: 10px;
+  background-color: transparent;
 }
 
 body.dark {
@@ -60,12 +101,18 @@ body.dark .chat .card {
   background-color: transparent;
   border: none;
 }
+body.dark .chat #messages li span {
+  background-color: #fff;
+}
 body.dark .chat .identificationButton {
   color: white;
 }
 body.dark .chat .identificationButton.active {
   background-color: #fff;
   color: #000 !important;
+}
+body.dark .chat .btn-send-box .btn-send {
+  color: white;
 }
 
 /*# sourceMappingURL=main.css.map */

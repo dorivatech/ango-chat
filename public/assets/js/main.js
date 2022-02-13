@@ -33,7 +33,7 @@ document.querySelectorAll('.identificationButton').forEach(item => {
     })
 });
 
-/* var socket = io();
+var socket = io();
 
 Chat.getForm().addEventListener('submit', function(e) {
     e.preventDefault();
@@ -63,4 +63,4 @@ socket.on('chat message', data => {
 socket.on('connected user', data => Chat.connectedDisconnectedUserListener('connected', data));
 socket.on('disconnected user', data => Chat.connectedDisconnectedUserListener('disconnected', data));
 socket.on('someone typing', data => Chat.someoneTyping(data));
-socket.on('stop typing', data => Chat.stopTyping(data)); */
+socket.on('stop typing', data => Chat.stopTyping(data));

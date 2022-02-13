@@ -1,20 +1,29 @@
 extends layouts/default.pug
 
+
 block content
     .d-flex.justify-content-center.align-items-center.flex-column.h-100
-        h1.text-center AngoChat
+        //- h1.text-center AngoChat
 
-        .chat.row.justify-content-center
+        .chat.row.justify-content-center.fixed-height
             .col-lg-5.col-md-7.col-sm-8.col-10
                 .card.h-100
                     .card-body#messages-container
                         #messages
+                            - var n = 0
+
+                            while n < 10
+                                li
+                                    span= 'Olá ' + n++
 
                         .typing-container.text-center#typing-container
 
                     .card-footer
                         form#form
-                            .input-group
-                                input.form-control#message(type="text" placeholder='Digite sua mensagem...' autofocus)
-                                .input-group-append
-                                    button.input-group-text(type='submit') Enviar
+                            .d-flex.justify-content-between.align-items-start
+                                .form-group.message-box
+                                    textarea(name="message" placeholder="Digite a sua mensagem..." rows="1").form-control.rounded#message
+
+                                .form-group.btn-send-box
+                                    button.btn-send
+                                        i.fa.fa-paper-plane
