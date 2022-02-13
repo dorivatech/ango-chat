@@ -19,5 +19,10 @@ body.light {
             background-color: transparent;
             border: none;
         }
+
+        .identificationButton.active {
+            background-color: lighten(gray, 20%);
+            color: #000 !important;
+        }
     }
 }

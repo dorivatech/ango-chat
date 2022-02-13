@@ -19,5 +19,14 @@ body.dark {
             background-color: transparent;
             border: none;
         }
+
+        .identificationButton {
+            color: white;
+
+            &.active {
+                background-color: #fff;
+                color: #000 !important;
+            }
+        }
     }
 }
