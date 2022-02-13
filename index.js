@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const http = require('http');
@@ -16,7 +17,8 @@ app.set('views', path.join(__dirname, 'views'));
 /** Defini a pasta public como a contedora dos arquivos estáticos */
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (req, res) => res.render('home'));
+app.get('/', (req, res) => res.render('home', { title: 'Início' }));
+app.get('/chat', (req, res) => res.render('chat', { title: 'Chat' }));
 
 io.on('connection', (socket) => {
     socket.broadcast.emit('connected user', {

@@ -1,0 +1,53 @@
+body.light {
+    background-color: #fff;
+
+    .navbar-theme {
+        .btn.light {
+            display: none;
+        }
+    }
+
+    .logo {
+        .title {
+            color: #000;
+        }
+    }
+
+    .chat {
+        #messages-container {
+            &::-webkit-scrollbar {
+                width: 5px;
+                border-top-right-radius: 5px;
+                background-color: white
+            }
+
+            &::-webkit-scrollbar-thumb {
+                border-radius: 5px;
+                background-color: lighten(gray, 20%);
+            }
+        }
+
+        .card {
+            box-shadow: 0 0 0.5rem #000;
+            background-color: transparent;
+            border: none;
+        }
+
+        #messages li span {
+            background-color: #0003;
+        }
+
+        .identificationButton.active {
+            background-color: lighten(gray, 20%);
+            color: #000 !important;
+        }
+
+        .btn-send-box {
+            .btn-send {
+                border: none;
+                padding: 10px;
+                background-color: transparent;
+            }
+        }
+    }
+}
