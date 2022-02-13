@@ -24,6 +24,11 @@
   background-color: #fff;
   color: #000 !important;
 }
+.chat .form-control.disabled {
+  cursor: not-allowed;
+  background-color: #b3b3b3;
+  border-color: #b3b3b3;
+}
 
 /* Themes */
 body.light {
