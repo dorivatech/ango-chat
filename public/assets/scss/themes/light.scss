@@ -1,9 +1,23 @@
 body.light {
     background-color: #fff;
 
+    .navbar-theme {
+        .btn.light {
+            display: none;
+        }
+    }
+
     .logo {
         .title {
             color: #000;
+        }
+    }
+
+    .chat {
+        .card {
+            box-shadow: 0 0 0.5rem #000;
+            background-color: transparent;
+            border: none;
         }
     }
 }

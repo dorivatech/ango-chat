@@ -6,6 +6,33 @@ window.onload = function() {
     Theme.init();
 }
 
+document.querySelectorAll('.changeThemeButton').forEach(item => {
+    item.addEventListener('click', function() {
+        Theme.setTheme(this.dataset.theme);
+    });
+});
+
+document.querySelectorAll('.identificationButton').forEach(item => {
+    item.addEventListener('click', function() {
+        document.querySelector('.identificationButton.active').classList.remove('active');
+        item.classList.add('active');
+
+        let checkbox = document.querySelector('#identification');
+        let inputName = document.querySelector('[name="name"]');
+
+        if(item.dataset.identify == "true") {
+            checkbox.checked = false;
+            inputName.disabled = false;
+            inputName.classList.remove('disabled');
+        } else {
+            checkbox.checked = true;
+            inputName.disabled = true;
+            inputName.classList.add('disabled');
+        }
+
+    })
+});
+
 /* var socket = io();
 
 Chat.getForm().addEventListener('submit', function(e) {

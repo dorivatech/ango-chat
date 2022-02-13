@@ -23,17 +23,15 @@ export const Theme = {
     },
 
     setTheme: function (theme) {
+        this.removeTheme();
         this.theme = theme;
+        this.setCookieTheme();
+        this.addTheme();
     },
 
     setCookieTheme: function (theme) {
-        this.removeTheme();
-        this.setTheme(theme);
-
         if (!this.getCookieTheme() || this.getCookieTheme() != this.getTheme())
             Cookie.setCookie('ango_chat_theme', this.getTheme(), 90);
-            
-        this.addTheme();
     },
 
     getCookieTheme: function () {

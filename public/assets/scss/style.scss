@@ -4,7 +4,28 @@
     list-style-type: none;
 }
 
+.navbar-theme {
+    .fa {
+        font-size: 20pt;
+    }
+
+    .btn.light {
+        color: yellow;
+        filter: drop-shadow(0 0 0.5rem yellow);
+    }
+
+    .btn.dark {
+        color: white;
+        filter: drop-shadow(0 0 0.2rem #fff) invert(1);
+    }
+}
+
 .chat {
     width: 100%;
     min-height: 200px;
+
+    .identificationButton.active {
+        background-color: #fff;
+        color: #000 !important;
+    }
 }
