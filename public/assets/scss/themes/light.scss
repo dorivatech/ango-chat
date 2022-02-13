@@ -14,6 +14,19 @@ body.light {
     }
 
     .chat {
+        #messages-container {
+            &::-webkit-scrollbar {
+                width: 5px;
+                border-top-right-radius: 5px;
+                background-color: white
+            }
+
+            &::-webkit-scrollbar-thumb {
+                border-radius: 5px;
+                background-color: lighten(gray, 20%);
+            }
+        }
+
         .card {
             box-shadow: 0 0 0.5rem #000;
             background-color: transparent;
