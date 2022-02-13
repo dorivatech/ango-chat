@@ -13,8 +13,12 @@ block content
                             - var n = 0
 
                             while n < 10
-                                li
-                                    span= 'Olá ' + n++
+                                if(n % 2 == 0)
+                                    li
+                                        span= 'Eu sou secundário ' + n++
+                                else
+                                    li.me
+                                        span= 'Eu sou o principal ' + n++
 
                         .typing-container.text-center#typing-container
 
