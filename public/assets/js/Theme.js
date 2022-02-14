@@ -55,5 +55,3 @@ export const Theme = {
         document.querySelector('body').classList.remove(this.getTheme());
     }
 };
-
-console.log(Theme?.getCookieTheme() || 'teste');

@@ -53,3 +53,5 @@ Afinal não, tinha outra janela do terminal compilando o sass 🙄🙄 mas vou d
 Comecei a trabalhar na estilização dos temas. Estou a usar um únimo arquivo scss chamado ```main.scss``` e nele faço o import de ambos os temas (```light.scss``` e ```dark.scss```) e também do style.scss.
 
 Coloquei a funcionalidade de entrar sem nome ou entrar com um nome.
+
+Agora vou começar a trabalhar nas funcionalidades de entrada no chat e conversa. Começando pela landing page where the user defini se vai entrar com nome ou não e depois vai para o chat e começa a conversar.

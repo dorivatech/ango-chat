@@ -52,6 +52,7 @@ export const Chat = {
     },
     
     connectedDisconnectedUserListener: function(type, data = {}) {
+        console.log(data);
         var item = document.createElement('li');
         var span = document.createElement('i');
         

@@ -21,8 +21,8 @@ app.get('/', (req, res) => res.render('home', { title: 'Início' }));
 app.get('/chat', (req, res) => res.render('chat', { title: 'Chat' }));
 
 io.on('connection', (socket) => {
-    socket.broadcast.emit('connected user', {
-        userId: socket.id
+    socket.on('new user', (user) => {
+        socket.broadcast.emit('connected user', { ...user, userId: socket.id });
     });
 
     socket.on('someone typing', () => {
