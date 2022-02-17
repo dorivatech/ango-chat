@@ -52,7 +52,7 @@ window.onload = function() {
                 alert('Digite seu nome por favor');
                 return;
             } else {
-                user.name = this.name.value;
+                user.name = this.name.value ? this.name.value : 'Anônimo';
                 sessionStorage.setItem('user', JSON.stringify(user));
             }
         } else
