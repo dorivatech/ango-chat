@@ -53,3 +53,35 @@ Afinal não, tinha outra janela do terminal compilando o sass 🙄🙄 mas vou d
 Comecei a trabalhar na estilização dos temas. Estou a usar um únimo arquivo scss chamado ```main.scss``` e nele faço o import de ambos os temas (```light.scss``` e ```dark.scss```) e também do style.scss.
 
 Coloquei a funcionalidade de entrar sem nome ou entrar com um nome.
+
+## Data: 22 / 02 / 2022 => Por acaso esse foi o último palíndromo da decada (nada a ver)
+
+Estou a adicionar um botão de voltar para quando o usuário está em um chat.
+
+## Data: 25 / 02 / 2022
+
+Hoje pensei em procurar uma solução para a questão do sass não compilar com o node-sass. Encontrei algumas soluções que ainda nem testei, mas assim que o fizer (que é tipo daqui a uns minutos), vour deixar aqui os links para servir de referência.
+
+Ah ia me esquecendo, para trabalhar nisso criei uma nova feature (git flow). Os links que usei a seguir, se precisarem de alguma ideia podem olhar lá nos links, com certeza eu vou deixar o link que me ajudou a resolver isso (isso se eu resolver 😅😄).
+
+* [Trying to compile and use nodemon to run a server - Not behaving as expected](https://github.com/remy/nodemon/issues/1711) confeço que o que esse cara estava fazendo aqui me fez ver que ainda estou muito longe de ser um super programador. Tipo coisas que eu nem pensava em fazer, ele implementou e estava apenas com alguns probleminhas. Consolo, eu conegui entender mais ou menos, só não teria pensado naquilo sozinho.
+
+* [Watch CSS setup with node-sass and nodemon](https://gist.github.com/andrew-rayco/0f94245718067affa0dc06f5ab3b998c) esse por acaso foi bem útil, me deu algumas dicas de como funcionam as coisas e o que deve estar em package.json, porém não funcionou para mim. Acho que só preciso me concentrar mais. Vamos ao que esse link me disse (ou o autor no caso)... Acabei de me lembrar que deixei o link para leitura então deixa pra lá.
+
+Depois de um tempo me rendi e fui ver uma vídeo aula.
+
+[Node Express and SASS/SCSS Setup](https://www.youtube.com/watch?v=EsSHjDo0Y3E) o que esse vídeo me ensinou? Básico, eu já consegui montar os meus scripts que vão rodar o ```index.js``` e outro para o sass. Então eu só preciso rodar eles ao mesmo tempo e esse vídeo recomendou o npm package [npm-run-all](https://www.npmjs.com/package/npm-run-all) que com um parâmetro ```--parallel``` eu consigo rodar vários scripts ao mesmo tempo. Então, bora codificar... e testar, porque ainda nem testei 😅😄
+
+Prontos, está a funcionar, vamos lá ver o que fiz.
+* Instalei o [npm-run-all](https://www.npmjs.com/package/npm-run-all) as a devDependency;
+* Adicionei os seguintes scripts:
+```bash
+{
+    ...
+    "dev": "npm-run-all --parallel run-index build-css",
+    "run-index": "nodemon index.js",
+    "build-css": "sass --no-source-map --watch public/assets/scss/main.scss public/assets/css/main.css"
+    ...
+}
+```
+* Agora só preciso rodar ```yarn dev``` ou ```npm run dev``` e pumba! Está funcional
