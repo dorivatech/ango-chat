@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npm-run-all --parallel run-index build-css",
+    "run-index": "nodemon index.js",
+    "build-css": "sass --no-source-map --watch public/assets/scss/main.scss public/assets/css/main.css"
   },
   "repository": {
     "type": "git",
