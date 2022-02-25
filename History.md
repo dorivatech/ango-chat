@@ -54,6 +54,20 @@ Comecei a trabalhar na estilização dos temas. Estou a usar um únimo arquivo s
 
 Coloquei a funcionalidade de entrar sem nome ou entrar com um nome.
 
+
+## Data: 17 / 02 /2022
+
+Confesso que fiquei um pouco perdido e deixei o projecto de lado, mas enfim voltei e adivinha de onde estou codificando? Num autocarro, a caminho de casa 😂😁
+
+Mas enfim, vamos ao que interessa. Nesse momento estou a trabalhar no aviso depois que alguém entra no chat. Como já sabem o form de entrada recebe algumas informações e depois eu crio um objecto com tais informações e faço um emit chamado ```new user``` para avisar aos outros que um usuário se conectou.
+
+### Mensagens
+* Se o usuário usar um nome e se permitir ser identificado a mensagem aparece ```Fulano conectou-se```
+* Se o usuário não usar nome ou não se permitir ser identificado a mensagem aparece ```Anônimo conectou-se```
+
+Eu sei, eu sei, a segunda mensagem é tipo meio preguiçosa, mas yha. Vou deixar essas coisas de copies para depois
+
+
 ## Data: 22 / 02 / 2022 => Por acaso esse foi o último palíndromo da decada (nada a ver)
 
 Estou a adicionar um botão de voltar para quando o usuário está em um chat.
@@ -85,3 +99,4 @@ Prontos, está a funcionar, vamos lá ver o que fiz.
 }
 ```
 * Agora só preciso rodar ```yarn dev``` ou ```npm run dev``` e pumba! Está funcional
+Agora vou começar a trabalhar nas funcionalidades de entrada no chat e conversa. Começando pela landing page where the user defini se vai entrar com nome ou não e depois vai para o chat e começa a conversar.

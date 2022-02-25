@@ -7,14 +7,14 @@ block content
             .col-lg-5.col-md-7.col-sm-8.col-10
                 .card.h-100.py-3
                     .card-body
-                        form(action="chat")#form
+                        form#signUpForm
                             .row.justify-content-center.align-items-center.h-100
                                 .logo
                                     h1.title.text-center Entrar
 
                                 .col-md-8.form-group.mb-2
                                     .row
-                                        input(type="checkbox" checked)#identification.d-none
+                                        input(type="checkbox" name="identification" checked)#identification.d-none
 
                                         .col-lg-6.col-md-6.col-sm-6.col-12
                                             label(for="identification" data-identify="true").identificationButton.text-center.btn.active Entrar com um nome
@@ -25,5 +25,5 @@ block content
                                     input(type="text" placeholder='Digite seu nome' name="name" autofocus).form-control.text-center
 
                                 .col-md-8.form-group.d-grid.text-center
-                                    button.btn.btn-primary.btn-block(type='submit')
+                                    button(type='submit').btn.btn-primary.btn-block
                                         span Entrar
